@@ -1,0 +1,2 @@
+# alsaaudioが必要
+apt-get install python-alsaaudio
