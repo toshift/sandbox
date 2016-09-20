@@ -1,10 +1,11 @@
-#!/usr/bin/python
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import os
 import sys
+import time
  
 def createDaemon():
-    # フォークして子プロセスのPIDを返してきた方（親）でpidを保持
     pid = os.fork()
     if pid > 0:
         f = open('/var/run/radkickd.pid','w')
@@ -12,10 +13,10 @@ def createDaemon():
         f.close()
         sys.exit()
 
-    else : # 子プロ
+    else : 
         os.system('mplayer -playlist http://yp.shoutcast.com/sbin/tunein-station.pls?id=172098')
         while True:
-            
- 
-if __name__=='__main__': 
-        createDaemon()
+            time.sleep(1) 
+
+if __name__ == '__main__':
+    createDaemon()
