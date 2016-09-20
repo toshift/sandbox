@@ -1,0 +1,11 @@
+# raspberry piの場合
+
+ 
+# alsaの音量デフォルト設定
+sudo alsactl store
+
+
+# 自動でBluetoothの接続を行う
+/etc/udev/rules.d/10-local.rules
+## Set bluetooth power up
+ACTION=="add", KERNEL=="hci0", RUN+="/usr/bin/hciconfig hci0 up"
